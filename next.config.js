@@ -9,7 +9,6 @@ if (isGithubActions) {
   // trim off `<owner>/`
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 
-  assetPrefix = './'
   basePath = `/${repo}`
 }
 
@@ -18,7 +17,7 @@ const nextConfig = {
   swcMinify: true,
   assetPrefix: assetPrefix,
   basePath: basePath,
-  images: {unoptimized: true,}
+  images: { unoptimized: true },
 }
 
 module.exports = nextConfig

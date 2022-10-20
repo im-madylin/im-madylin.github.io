@@ -1,15 +1,19 @@
 import Head from 'next/head'
-import Header from '../components/Header'
+import Filter from '../components/Filter'
+import Content from '../components/Content'
 
 export default function Home() {
   return (
     <div>
       <Head>
         <title>MadYlin&apos;s BLOG</title>
-        <meta name='description' content='test' />
+        <meta name="descr\iption" content="study" />
       </Head>
-      <div>
-
+      <Filter></Filter>
+      <div className="mx-52 flex flex-col justify-center p-3">
+        <Content></Content>
+        <Content></Content>
+        <Content></Content>
       </div>
     </div>
   )

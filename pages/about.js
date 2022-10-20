@@ -1,4 +1,3 @@
-import Header from "../components/Header"
 import AboutTitle from "../components/AboutTitle"
 import AboutContent from "../components/AboutContent"
 

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import ItsMe from "../components/about_me.JPG"
+import ItsMe from "./about_me.JPG"
 
 export default function AboutContent() {
     return (

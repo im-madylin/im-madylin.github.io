@@ -1,5 +1,5 @@
 import Image from "next/image"
-import ItsMe from "/public/about_me.jpg"
+import ItsMe from "./public/about_me.jpg"
 
 export default function AboutContent() {
     return (

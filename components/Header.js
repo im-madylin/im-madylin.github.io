@@ -13,7 +13,7 @@ export default function Header() {
                         <TitleColor>M</TitleColor>
                         ad
                         <TitleColor>Y</TitleColor>
-                        lin's 
+                        lin&apos;s 
                         <TitleColor>BLOG</TitleColor>
                         🦋
                     </a>

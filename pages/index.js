@@ -5,11 +5,11 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>MadYlin's BLOG</title>
+        <title>MadYlin&apos;s BLOG</title>
         <meta name='description' content='test' />
       </Head>
       <div>
-        
+
       </div>
     </div>
   )

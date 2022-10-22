@@ -7,7 +7,9 @@ export default function AboutTitle() {
         About
         <TitleColor> Me</TitleColor>
       </span>
-      <span className="text-gray-700">Let&apos;s me introduce my self</span>
+      <span className="text-lg text-gray-700">
+        안녕하세요. 개발자 이하현 입니다😄
+      </span>
     </div>
   )
 }

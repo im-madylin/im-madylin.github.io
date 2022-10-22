@@ -3,7 +3,7 @@ import AboutContent from '../components/AboutContent'
 
 export default function about() {
   return (
-    <div>
+    <div className="flex flex-col">
       <AboutTitle />
       <AboutContent />
     </div>

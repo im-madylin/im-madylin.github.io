@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import TitleColor from './TitleColor'
+import { BiSearchAlt2 } from 'react-icons/bi'
 
 export default function Header() {
   const router = useRouter()
@@ -14,12 +15,12 @@ export default function Header() {
             ad
             <TitleColor>Y</TitleColor>
             lin&apos;s
-            <TitleColor>BLOG</TitleColor>
+            <TitleColor> BLOG</TitleColor>
             🦋
           </a>
         </Link>
       </div>
-      <div className="flex max-w-xs flex-grow justify-evenly">
+      <div className="mr-10 flex max-w-xs space-x-8">
         <div
           className={`${
             router.pathname === '/about' ? 'text-blue-500' : 'text-gray-700'
@@ -29,9 +30,7 @@ export default function Header() {
             <a>About Me</a>
           </Link>
         </div>
-        <div className="flex cursor-pointer items-center font-bold text-gray-700 hover:scale-105">
-          <p>Search</p>
-        </div>
+        <BiSearchAlt2 className="cursor-pointer text-2xl hover:scale-105" />
       </div>
     </header>
   )

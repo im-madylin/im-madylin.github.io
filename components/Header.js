@@ -24,13 +24,13 @@ export default function Header() {
         <div
           className={`${
             router.pathname === '/about' ? 'text-blue-500' : 'text-gray-700'
-          } flex cursor-pointer items-center font-bold hover:scale-105`}
+          } flex cursor-pointer items-center font-bold hover:scale-110`}
         >
           <Link href="/about">
             <a>About Me</a>
           </Link>
         </div>
-        <BiSearchAlt2 className="cursor-pointer text-2xl hover:scale-105" />
+        <BiSearchAlt2 className="cursor-pointer text-2xl hover:scale-110" />
       </div>
     </header>
   )

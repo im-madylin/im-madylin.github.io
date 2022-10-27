@@ -1,20 +1,31 @@
 import Head from 'next/head'
 import Filter from '../components/Filter'
-import Content from '../components/Content'
+import PostList from '../components/PostList'
+import { getAllPosts } from './api/post'
 
-export default function Home() {
+export default function Home({ allPosts }) {
   return (
     <div>
       <Head>
         <title>MadYlin&apos;s BLOG</title>
-        <meta name="descr\iption" content="study" />
+        <meta name="description" content="study" />
       </Head>
       <Filter></Filter>
-      <div className="mx-52 flex flex-col justify-center p-3">
-        <Content></Content>
-        <Content></Content>
-        <Content></Content>
-      </div>
+      <PostList posts={allPosts} />
     </div>
   )
+}
+
+export const getStaticProps = async () => {
+  const allPosts = getAllPosts([
+    'title',
+    'data',
+    'slug',
+    'coverImage',
+    'excerpt',
+    'tag',
+  ])
+  return {
+    props: { allPosts },
+  }
 }

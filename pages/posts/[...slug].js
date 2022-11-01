@@ -1,9 +1,10 @@
-import useRouter from 'next/router'
+import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Head from 'next/head'
 import PostTitle from '../../components/PostTitle'
 import PostContent from '../../components/PostContent'
 import { getPostBySlug, getAllPosts } from '../api/post'
+import markdownToHtml from '../api/markdownToHtml'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -17,7 +18,7 @@ export default function Post({ post }) {
       <PostTitle
         title={post.title}
         coverImage={post.coverImage}
-        data={post.data}
+        date={post.date}
         tag={post.tag}
       />
       <PostContent content={post.content} />
@@ -53,7 +54,7 @@ export async function getStaticPaths() {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug,
+          slug: post.slug.split('/'),
         },
       }
     }),

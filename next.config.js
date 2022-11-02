@@ -21,7 +21,7 @@ const nextConfig = {
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   }),
   assetPrefix: isLocalBuild
-    ? '/Users/ihahyeon/study/create_blog/my_blog/out'
+    ? '/Users/ihahyeon/study/im-madylin.github.io/out'
     : undefined,
   images: {
     unoptimized: true,

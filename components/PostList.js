@@ -12,6 +12,7 @@ export default function PostList({ posts }) {
             date={post.date}
             slug={post.slug}
             excerpt={post.excerpt}
+            tag={post.tag}
           />
         )
       })}

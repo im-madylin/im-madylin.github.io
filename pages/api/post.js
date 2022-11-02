@@ -35,7 +35,7 @@ export function getPostBySlug(slug, fields) {
   const { data, content } = matter(fileContents)
 
   const items = {}
-
+  console.log(data)
   fields.forEach((field) => {
     if (field === 'slug') {
       items[field] = realSlug

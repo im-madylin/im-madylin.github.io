@@ -1,11 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  images: { unoptimized: true },
-}
-
-module.exports = nextConfig
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
@@ -16,7 +9,24 @@ const withMDX = require('@next/mdx')({
     // providerImportSource: "@mdx-js/react",
   },
 })
-module.exports = withMDX({
-  // Append the default value with md extensions
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-})
+
+let isLocalBuild =
+  process.env.npm_lifecycle_script ===
+  'NODE_ENV=development next build && next export'
+
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  ...withMDX({
+    pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  }),
+  assetPrefix: isLocalBuild
+    ? '/Users/ihahyeon/study/create_blog/my_blog/out'
+    : undefined,
+  images: {
+    unoptimized: true,
+    domains: ['images.unsplash.com'],
+  },
+}
+
+module.exports = nextConfig

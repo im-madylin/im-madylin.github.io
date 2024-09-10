@@ -16,7 +16,7 @@ const Cover: React.FC = () => {
           소통과 협력의 가치를 깊이 인지하고 있습니다.
         </p>
       </div>
-      <div className="relative flex h-full w-full">
+      <div className="relative h-full w-full">
         <Image
           src="/images/profile.png"
           fill
@@ -24,6 +24,9 @@ const Cover: React.FC = () => {
           className="object-cover"
           alt="profile"
         />
+        <p className="absolute bottom-3 left-4 z-10 text-base text-gray-300">
+          Last Update 2024.09.13
+        </p>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const Cover: React.FC = () => {
       </div>
       <div className="relative h-full w-full">
         <Image
-          src="/images/profile.png"
+          src="/images/profile.jpg"
           fill
           sizes="100vw"
           className="object-cover"

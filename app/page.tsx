@@ -1,14 +1,18 @@
+import AboutMe from "../components/AboutMe";
 import Cover from "../components/Cover";
+import FAB from "../components/FloatingActionBTN";
 import GoUpBTN from "../components/GoUpBTN";
-import NavBar from "../components/NavBar";
+import HeaderNav from "../components/HeaderNav";
 
 export default function Home() {
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center">
-      <NavBar />
+    <div>
+      <FAB />
       <GoUpBTN />
-      <main className="flex h-full w-full flex-col">
+      <main>
         <Cover />
+        <HeaderNav />
+        <AboutMe />
       </main>
       <footer className="items-center justify-center"></footer>
     </div>

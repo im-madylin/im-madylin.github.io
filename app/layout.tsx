@@ -15,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${noto_sans.className} antialiased`}>{children}</body>
+    <html lang="ko">
+      <body className={`${noto_sans.className}`}>{children}</body>
     </html>
   );
 }

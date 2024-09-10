@@ -1,5 +1,5 @@
-import GoUpBTN from "../components/\bGoUpBTN";
 import Cover from "../components/Cover";
+import GoUpBTN from "../components/GoUpBTN";
 import NavBar from "../components/NavBar";
 
 export default function Home() {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LiaAngleDoubleDownSolid } from "react-icons/lia";
 
 const Cover: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const Cover: React.FC = () => {
         <p className="absolute bottom-3 left-4 z-10 text-base text-gray-300">
           Last Update 2024.09.13
         </p>
+        <LiaAngleDoubleDownSolid className="absolute bottom-1 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform justify-center text-5xl text-white" />
       </div>
     </section>
   );

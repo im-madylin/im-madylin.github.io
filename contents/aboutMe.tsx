@@ -32,3 +32,133 @@ export const introContents = [
     ],
   },
 ];
+
+export const skillContents = [
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    name: "Javascript",
+    description: [
+      "ES6+ 문법을 사용할 수 있습니다.",
+      "Vanilla JS로 프로젝트를 진행하며  SPA를 구현한 경험이 있습니다.",
+      "Promise, async/await을 이해하고 비동기 처리를 할 수 있습니다.",
+      "이벤트 기반 무한 스크롤 기능을 구현할 수 있습니다.",
+    ],
+    highlights: [
+      "ES6+",
+      "Vanilla JS",
+      "SPA",
+      "Promise",
+      "async/await",
+      "무한 스크롤",
+    ],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+    name: "Typescript",
+    description: [
+      "타입 정의를 통해 코드의 안정성과 유지보수성을 향상시킨 경험이 있습니다.",
+      "인터페이스와 제네릭을 사용해 타입을 더욱 유연하게 정의할 수 있습니다.",
+    ],
+    highlights: ["타입 정의", "인터페이스와 제네릭"],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg",
+    logo2:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+    name: "C/C++",
+    description: [
+      "메모리를 동적으로 할당하고 관리할 수 있습니다.",
+      "C++ 98버전을 사용하며 기초부터 학습했습니다.",
+      "객체 지향 프로그래밍 개념을 이해하고 클래스를 정의하여 객체를 생성할 수 있습니다.",
+      "상속과 다형성을 활용하여 코드를 재사용하고 유연하게 설계할 수 있습니다.",
+    ],
+    highlights: [
+      "메모리를 동적",
+      "C++ 98",
+      "기초부터 학습",
+      "객체 지향 프로그래밍",
+      "상속과 다형성",
+    ],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg",
+    logo2:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg",
+    name: "HTML/CSS",
+    description: [
+      "시맨틱 마크업을 활용하여 의미 있는 태그를 사용할 수 있습니다.",
+      "keyframes를 사용하여 애니메이션 작업을 할 수 있습니다.",
+      "모바일, 태블릿, 데스크탑 반응형 사이트를 구현한 경험이 있습니다.",
+    ],
+    highlights: ["시맨틱 마크업", "애니메이션 작업", "반응형 사이트"],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    name: "React",
+    description: [
+      "컴포넌트 기반 아키텍처를 설계하고 개발할 수 있습니다.",
+      "Hooks를 사용하여 함수 컴포넌트에서 상태와 생명주기 메서드를 사용할 수 있습니다.",
+      "Recoil 상태관리 라이브러리를 사용할 수 있습니다.",
+      "번들러 Vite를 사용한 경험이 있습니다.",
+    ],
+    highlights: [
+      "컴포넌트 기반 아키텍처",
+      "Hooks",
+      "상태와 생명주기 메서드",
+      "Recoil",
+      "Vite",
+    ],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    name: "Next.js",
+    description: [
+      "정적 페이지를 생성하여 Gihub Pages로 배포한 경험이 있습니다.",
+      "메타 태그 설정을 통해 SEO를 최적화한 경험이 있습니다.",
+    ],
+    highlights: ["정적 페이지", "Gihub Pages로 배포", "SEO를 최적화"],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    name: "TailwindCSS",
+    description: [
+      "Tailwind의 유틸리티 클래스를 활용해 스타일링을 적용할 수 있습니다.",
+      "Tailwind의 반응형 유틸리티를 사용해 다양한 디바이스에 최적화된 디자인을 구현한 경험이 있습니다.",
+    ],
+    highlights: ["유틸리티 클래스를 활용", "반응형 유틸리티"],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    name: "Git",
+    description: [
+      "Git을 사용하여 소스 코드 버전 관리를 수행할 수 있습니다.",
+      "Git의 브랜치 전략을 이해하고 적용할 수 있습니다.",
+      "Github Issues와 Pull requests를 사용하여 협업할 수 있습니다.",
+    ],
+    highlights: ["소스 코드 버전 관리", "브랜치 전략", "협업"],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+    name: "Docker",
+    description: [
+      "Docker의 개념을 이해하고 있으며, 이를 사용하여 애플리케이션을 컨테이너화할 수 있습니다.",
+      "Docker Compose를 활용하여 멀티 컨테이너 애플리케이션을 정의하고 실행할 수 있습니다.",
+      "Docker Hub의 Maria DB, Wordpress, NginX 이미지를 사용하지 않고, 직접 커스텀 이미지 파일을 만들어본 경험이 있습니다.",
+    ],
+    highlights: ["컨테이너화", "Docker Compose", "직접 커스텀 이미지 파일"],
+  },
+  {
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
+    name: "figma",
+    description: [
+      "Figma에서 재사용 가능한 컴포넌트를 설계한 경험이 있습니다.",
+      "Figma에서 팀원들과 실시간으로 디자인 작업을 협업한 경험이 있습니다.",
+      "프로토타이핑 기능을 사용해 인터랙티브한 모형을 만든 경험이 있습니다.",
+    ],
+    highlights: [
+      "재사용 가능한 컴포넌트",
+      "팀원들과 실시간",
+      "프로토타이핑 기능",
+    ],
+  },
+];

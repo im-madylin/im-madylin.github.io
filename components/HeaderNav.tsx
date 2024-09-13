@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
   return (
     <nav
-      className={`bg-appleGray-50/70 flex h-20 w-full items-center justify-between border-b border-gray-300 px-36 transition-all duration-300 ${
+      className={`bg-appleGray-50/95 flex h-16 w-full items-center justify-between border-b border-gray-300 px-36 transition-all duration-300 ${
         isSticky ? "fixed left-0 top-0 z-50" : "relative"
       }`}
     >

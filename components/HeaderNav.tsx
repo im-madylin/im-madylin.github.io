@@ -6,23 +6,48 @@ const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [selectedSection, setSelectedSection] = useState("about");
 
+  // Function to scroll to a specific section
   const scrollToSection = (section: string) => {
     const target = document.getElementById(section);
-    setSelectedSection(section);
-    target?.scrollIntoView({ behavior: "smooth" });
+    if (target) {
+      setSelectedSection(section);
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
+  // Handle scrolling and update the sticky state and selected section
   useEffect(() => {
     const handleScroll = () => {
       const coverSectionHeight =
         document.getElementById("cover")?.offsetHeight || 0;
       const scrollTop = window.scrollY;
 
+      // Update sticky state
       setIsSticky(scrollTop > coverSectionHeight);
+
+      // Determine the current section based on scroll position
+      const sections = ["about", "projects"];
+      let currentSection = "";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const sectionTop = element.offsetTop;
+          const sectionHeight = element.offsetHeight;
+          if (
+            scrollTop >= sectionTop - 100 &&
+            scrollTop < sectionTop + sectionHeight - 100
+          ) {
+            currentSection = section;
+          }
+        }
+      }
+      setSelectedSection(currentSection);
     };
 
+    // Attach the scroll event listener
     window.addEventListener("scroll", handleScroll);
 
+    // Cleanup the scroll event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

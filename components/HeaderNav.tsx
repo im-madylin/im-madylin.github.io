@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [selectedSection, setSelectedSection] = useState("about");
 
-  // Function to scroll to a specific section
+  // 선택된 섹션으로 스크롤 이동
   const scrollToSection = (section: string) => {
     const target = document.getElementById(section);
     if (target) {
@@ -15,17 +15,16 @@ const Header: React.FC = () => {
     }
   };
 
-  // Handle scrolling and update the sticky state and selected section
   useEffect(() => {
     const handleScroll = () => {
       const coverSectionHeight =
         document.getElementById("cover")?.offsetHeight || 0;
       const scrollTop = window.scrollY;
 
-      // Update sticky state
+      // 헤더가 스크롤에 따라 스티키 상태로 업데이트
       setIsSticky(scrollTop > coverSectionHeight);
 
-      // Determine the current section based on scroll position
+      // 현재 스크롤 위치에 따라 선택된 섹션 업데이트
       const sections = ["about", "projects"];
       let currentSection = "";
       for (const section of sections) {
@@ -44,10 +43,8 @@ const Header: React.FC = () => {
       setSelectedSection(currentSection);
     };
 
-    // Attach the scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the scroll event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

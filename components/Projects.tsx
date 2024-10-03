@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { projectContents } from "../contents/projects";
+import MoreInfoBTN from "./MoreInfoBTN";
 
 const Projects: React.FC = () => {
   return (
@@ -36,7 +37,7 @@ const Projects: React.FC = () => {
             <p>{content.description}</p>
             <p className="text-gray-500">사용 기술 : {content.techStack}</p>
           </div>
-          {/* <MoreInfoBTN /> */}
+          <MoreInfoBTN />
         </div>
       ))}
     </section>

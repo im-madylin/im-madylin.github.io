@@ -58,11 +58,11 @@ const Cover: React.FC = () => {
 
   const bounceAnimation = {
     visible: {
-      y: [0, -10, 0], // 0에서 -10px 위로 올라갔다가 다시 내려옴
+      y: [0, -10, 0],
       transition: {
-        repeat: Infinity, // 무한 반복
-        repeatType: "loop", // 루프 형태로 반복
-        duration: 0.9, // 한 번의 애니메이션이 0.6초 동안 실행
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 0.9,
         ease: "easeInOut",
       },
     },

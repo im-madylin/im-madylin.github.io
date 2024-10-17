@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const scrollToSection = (section: string) => {
     const target = document.getElementById(section);
     if (target) {
-      setSelectedSection(section);
+      // setSelectedSection(section);
       target.scrollIntoView({ behavior: "smooth" });
     }
   };

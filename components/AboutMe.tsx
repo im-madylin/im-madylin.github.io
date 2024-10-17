@@ -1,32 +1,60 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { introContents, skillContents } from "../contents/aboutMe";
+import useAnimateOnScroll from "../hooks/useAnimateOnScroll";
 
 const escapeRegExp = (string: string) => {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
 
 const AboutMe: React.FC = () => {
+  const aboutMeAnimate = useAnimateOnScroll();
+  const introductionAnimate = useAnimateOnScroll();
+
   return (
     <section
       id="about"
       className="flex min-h-screen w-full flex-col items-center justify-start gap-36 p-36"
     >
       <div className="flex w-full flex-col gap-24">
-        <h1 className="w-full justify-start text-left text-6xl font-bold">
-          About Me
-        </h1>
-        <Image
-          src="/images/html_image.webp"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-auto w-full object-cover"
-          alt="html code"
-        />
+        <motion.div ref={aboutMeAnimate.ref}>
+          <motion.h1
+            className="w-full justify-start text-left text-6xl font-bold"
+            initial="hidden"
+            animate={aboutMeAnimate.isInView ? "visible" : "hidden"}
+            exit="exit"
+            variants={aboutMeAnimate.fadeInVariants}
+          >
+            About Me
+          </motion.h1>
+        </motion.div>
+        <motion.div>
+          <Image
+            src="/images/html_image.webp"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="h-auto w-full object-cover"
+            alt="html code"
+          />
+        </motion.div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-28">
+      <motion.div
+        ref={introductionAnimate.ref}
+        className="flex w-full flex-col items-center justify-center gap-28"
+      >
         {/* Introduction */}
-        <h2 className="text-center text-7xl font-bold">Introduction</h2>
+        <motion.h2
+          initial="hidden"
+          animate={introductionAnimate.isInView ? "visible" : "hidden"}
+          exit="exit"
+          variants={introductionAnimate.fadeInVariants}
+          className="text-center text-7xl font-bold"
+        >
+          Introduction
+        </motion.h2>
         <div className="flex w-full flex-col items-center justify-center gap-20">
           {introContents.map((content, index) => {
             const regex = new RegExp(
@@ -57,7 +85,7 @@ const AboutMe: React.FC = () => {
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
       {/* Skills & Tools */}
       <div className="flex w-full flex-col items-center justify-center gap-28">

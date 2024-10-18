@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { skillContents } from "../../contents/aboutMe";
+import EscapeRegExp from "../Utils/EscapeRegExp";
 
 const SkillAndTools: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const SkillAndTools: React.FC = () => {
       <div className="grid w-full grid-cols-2 items-start justify-center gap-24">
         {skillContents.map((content, index) => {
           const regex = new RegExp(
-            `(${content.highlights.map(escapeRegExp).join("|")})`,
+            `(${content.highlights.map(EscapeRegExp).join("|")})`,
             "g",
           );
           return (
@@ -61,10 +62,6 @@ const SkillAndTools: React.FC = () => {
       </div>
     </div>
   );
-};
-
-const escapeRegExp = (string: string) => {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
 
 export default SkillAndTools;

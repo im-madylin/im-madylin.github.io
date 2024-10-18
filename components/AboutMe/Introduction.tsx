@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { introContents } from "../../contents/aboutMe";
 import useAnimateOnScroll from "../../hooks/useAnimateOnScroll";
+import EscapeRegExp from "../Utils/EscapeRegExp";
 
 const Introduction: React.FC = () => {
   const introductionAnimate = useAnimateOnScroll();
@@ -22,7 +23,7 @@ const Introduction: React.FC = () => {
       <div className="flex w-full flex-col items-center justify-center gap-20">
         {introContents.map((content, index) => {
           const regex = new RegExp(
-            `(${content.highlights.map(escapeRegExp).join("|")})`,
+            `(${content.highlights.map(EscapeRegExp).join("|")})`,
             "g",
           );
           const answer = content.answer.split(regex);
@@ -51,10 +52,6 @@ const Introduction: React.FC = () => {
       </div>
     </motion.div>
   );
-};
-
-const escapeRegExp = (string: string) => {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
 
 export default Introduction;

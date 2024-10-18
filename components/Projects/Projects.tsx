@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { projectContents } from "../contents/projects";
+import { projectContents } from "../../contents/projects";
 import MoreInfoBTN from "./MoreInfoBTN";
 
 const Projects: React.FC = () => {

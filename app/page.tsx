@@ -1,9 +1,9 @@
-import AboutMe from "../components/AboutMe";
-import Cover from "../components/Cover";
-import FAB from "../components/FloatingActionBTN";
-import GoUpBTN from "../components/GoUpBTN";
-import HeaderNav from "../components/HeaderNav";
-import Projects from "../components/Projects";
+import AboutMe from "../components/AboutMe/AboutMe";
+import Cover from "../components/Cover/Cover";
+import Projects from "../components/Projects/Projects";
+import FAB from "../components/Utils/FloatingActionBTN";
+import GoUpBTN from "../components/Utils/GoUpBTN";
+import HeaderNav from "../components/Utils/HeaderNav";
 
 export default function Home() {
   return (

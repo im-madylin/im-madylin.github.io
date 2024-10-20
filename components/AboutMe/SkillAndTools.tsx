@@ -6,7 +6,7 @@ import EscapeRegExp from "../Utils/EscapeRegExp";
 
 const SkillAndTools: React.FC = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-28">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-28 p-36">
       <h2 className="text-center text-7xl font-bold">Skills & Tools</h2>
       <div className="grid w-full grid-cols-2 items-start justify-center gap-24">
         {skillContents.map((content, index) => {

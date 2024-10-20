@@ -9,7 +9,7 @@ const Introduction: React.FC = () => {
   return (
     <motion.div
       ref={introductionAnimate.ref}
-      className="flex w-full flex-col items-center justify-center gap-28"
+      className="bg-appleGray-80 flex min-h-screen w-full flex-col items-center justify-center gap-28 p-36"
     >
       <motion.h2
         initial="hidden"
@@ -20,7 +20,7 @@ const Introduction: React.FC = () => {
       >
         Introduction
       </motion.h2>
-      <div className="flex w-full flex-col items-center justify-center gap-20">
+      <div className="flex w-full flex-col items-start justify-start gap-20">
         {introContents.map((content, index) => {
           const regex = new RegExp(
             `(${content.highlights.map(EscapeRegExp).join("|")})`,
@@ -30,7 +30,7 @@ const Introduction: React.FC = () => {
           return (
             <div
               key={index}
-              className="flex w-full flex-col items-center justify-center gap-8 text-left"
+              className="flex w-full flex-col items-center justify-center gap-8 whitespace-normal text-left"
             >
               <h3 className="w-full text-3xl font-bold">
                 Q. {content.question}

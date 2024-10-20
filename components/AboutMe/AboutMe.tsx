@@ -13,9 +13,9 @@ const AboutMe: React.FC = () => {
   return (
     <section
       id="about"
-      className="flex min-h-screen w-full flex-col items-center justify-start gap-36 p-36"
+      className="flex min-h-screen w-full flex-col items-center justify-start"
     >
-      <div className="flex w-full flex-col gap-24">
+      <div className="flex w-full flex-col gap-24 p-36">
         <motion.div ref={h1Animate.ref}>
           <motion.h1
             className="w-full justify-start text-left text-6xl font-bold"

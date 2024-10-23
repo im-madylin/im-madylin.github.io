@@ -10,7 +10,6 @@ const Header: React.FC = () => {
   const scrollToSection = (section: string) => {
     const target = document.getElementById(section);
     if (target) {
-      // setSelectedSection(section);
       target.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -51,42 +50,50 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <nav
-      className={`flex h-16 w-full items-center justify-between border-b border-gray-300 bg-appleGray-50/95 px-36 transition-all duration-300 ${
-        isSticky ? "fixed left-0 top-0 z-50" : "relative"
-      }`}
-    >
-      <div className="text-2xl font-semibold">프론트엔드 개발자 이하현</div>
-      <ul className="flex h-full items-center justify-center gap-12">
-        {/* About Me */}
-        <li className="flex h-full flex-col justify-between">
-          <div className="h-0"></div>
-          <button
-            onClick={() => scrollToSection("about")}
-            className="text-base font-medium"
-          >
-            About Me
-          </button>
-          <div
-            className={`h-0 border-b ${selectedSection === "about" ? "border-black" : ""}`}
-          ></div>
-        </li>
+    <>
+      <div className={`${isSticky ? "h-16" : ""}`} />
 
-        {/* Projects */}
-        <li className="flex h-full flex-col justify-between">
-          <div className="h-0"></div>
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="text-base font-medium"
-          >
-            Projects
-          </button>
-          <div
-            className={`h-0 border-b ${selectedSection === "projects" ? "border-black" : ""}`}
-          ></div>
-        </li>
-      </ul>
-    </nav>
+      <nav
+        className={`flex h-16 w-full items-center justify-between border-b border-gray-300 bg-appleGray-50/95 px-36 transition-all duration-300 ${
+          isSticky ? "fixed left-0 top-0 z-50" : "relative"
+        }`}
+      >
+        <div className="text-2xl font-semibold">프론트엔드 개발자 이하현</div>
+        <ul className="flex h-full items-center justify-center gap-12">
+          {/* About Me */}
+          <li className="flex h-full flex-col justify-between">
+            <div className="h-0"></div>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-base font-medium"
+            >
+              About Me
+            </button>
+            <div
+              className={`h-0 border-b ${
+                selectedSection === "about" ? "border-black" : ""
+              }`}
+            ></div>
+          </li>
+
+          {/* Projects */}
+          <li className="flex h-full flex-col justify-between">
+            <div className="h-0"></div>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="text-base font-medium"
+            >
+              Projects
+            </button>
+            <div
+              className={`h-0 border-b ${
+                selectedSection === "projects" ? "border-black" : ""
+              }`}
+            ></div>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 

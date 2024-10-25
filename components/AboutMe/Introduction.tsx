@@ -10,6 +10,7 @@ const Introduction: React.FC = () => {
   const scroller = useRef<HTMLDivElement | null>(null);
   const introductions = useRef<HTMLDivElement | null>(null);
 
+  // 가로 스크롤 애니메이션
   useEffect(() => {
     const introSet = gsap.utils.toArray(".introduction");
 

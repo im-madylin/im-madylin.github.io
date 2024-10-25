@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { LiaAngleDoubleDownSolid } from "react-icons/lia";
 import useAnimateOnLoad from "../../hooks/useAnimateOnLoad";
+import TypingText from "./TypingText";
 
 const Cover: React.FC = () => {
   // 애니메이션 옵션 설정
@@ -35,6 +36,7 @@ const Cover: React.FC = () => {
     delay: 2,
   });
 
+  // 아이콘 바운스 애니메이션
   useEffect(() => {
     if (iconRef.current) {
       gsap.to(iconRef.current, {
@@ -58,12 +60,8 @@ const Cover: React.FC = () => {
             프론트엔드 개발자 이하현 입니다.
           </h1>
         </div>
-        <div ref={textRef}>
-          <p className="mt-4 text-center text-3xl">
-            IT기업에서 사용자 경험을 향상시키기 위해 노력한 경험이 있습니다.{" "}
-            <br />
-            소통과 협력의 가치를 깊이 인지하고 있습니다.
-          </p>
+        <div ref={textRef} className="h-6">
+          <TypingText />
         </div>
       </div>
       <div className="relative h-full w-full">

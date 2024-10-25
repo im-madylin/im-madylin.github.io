@@ -26,23 +26,13 @@ const Introduction: React.FC = () => {
         anticipatePin: 1,
         snap: 1 / (introSet.length - 1),
 
-        // 새로고침 시 스크롤이 끝날 시점을 다시 계산
-        end: () => "+=" + window.innerWidth * (introSet.length - 1),
+        end: () => "+=" + window.innerWidth,
       },
     });
 
-    // 컴포넌트가 언마운트되면 애니메이션을 정리
     return () => {
       to.kill();
-      ScrollTrigger.refresh(); // 새로고침 시에도 트리거를 다시 설정
     };
-  }, []);
-
-  useEffect(() => {
-    // 페이지가 로드되었을 때 ScrollTrigger를 강제로 새로고침
-    window.addEventListener("load", () => {
-      ScrollTrigger.refresh();
-    });
   }, []);
 
   return (

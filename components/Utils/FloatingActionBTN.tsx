@@ -1,25 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoNewspaper } from "react-icons/io5";
+import useAnimateOnLoad from "../../hooks/useAnimateOnLoad";
 
 const FloatingActionBTN: React.FC = () => {
   const [isFABHovered, setIsFABHovered] = useState(false);
 
-  const btnVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 2,
-        duration: 1,
-        ease: "easeInOut",
-      },
-    },
-  };
+  const buttonRef = useAnimateOnLoad({
+    duration: 1,
+    delay: 2,
+  });
 
   const menu = [
     {
@@ -34,11 +27,10 @@ const FloatingActionBTN: React.FC = () => {
     },
     { name: "Email", tag: <IoIosMail />, href: "mailto:im.madylin@gmail.com" },
   ];
+
   return (
-    <motion.button
-      initial="hidden"
-      animate="visible"
-      variants={btnVariants}
+    <div
+      ref={buttonRef}
       onMouseEnter={() => setIsFABHovered(true)}
       onMouseLeave={() => setIsFABHovered(false)}
       className="fixed bottom-16 right-5 z-10 flex w-10 flex-col items-center justify-center gap-2 rounded-3xl bg-appleGray-100/70 p-4"
@@ -61,7 +53,7 @@ const FloatingActionBTN: React.FC = () => {
           ></div>
         );
       })}
-    </motion.button>
+    </div>
   );
 };
 

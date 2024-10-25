@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import useAnimateOnScroll from "../../hooks/useAnimateOnScroll";
 import Introduction from "./Introduction";
@@ -16,24 +15,12 @@ const AboutMe: React.FC = () => {
       className="flex min-h-screen w-full flex-col items-center justify-start overflow-hidden"
     >
       <div className="flex w-full flex-col gap-24 p-36">
-        <motion.div ref={h1Animate.ref}>
-          <motion.h1
-            className="w-full justify-start text-left text-6xl font-bold"
-            initial="hidden"
-            animate={h1Animate.isInView ? "visible" : "hidden"}
-            exit="exit"
-            variants={h1Animate.fadeInVariants}
-          >
+        <div ref={h1Animate.ref}>
+          <h1 className="w-full justify-start text-left text-6xl font-bold">
             About Me
-          </motion.h1>
-        </motion.div>
-        <motion.div
-          ref={imageAnimate.ref}
-          initial="hidden"
-          animate={imageAnimate.isInView ? "visible" : "hidden"}
-          exit="exit"
-          variants={imageAnimate.fadeInVariants}
-        >
+          </h1>
+        </div>
+        <div ref={imageAnimate.ref}>
           <Image
             src="/images/html_image.webp"
             width={0}
@@ -42,7 +29,7 @@ const AboutMe: React.FC = () => {
             className="h-auto w-full object-cover"
             alt="html code"
           />
-        </motion.div>
+        </div>
       </div>
       <Introduction />
       <SkillAndTools />

@@ -51,6 +51,7 @@ const Header: React.FC = () => {
 
   return (
     <>
+      {/* 고정된 헤더의 높이만큼 상단에 여백 추가 */}
       <div className={`${isSticky ? "h-16" : ""}`} />
 
       <nav

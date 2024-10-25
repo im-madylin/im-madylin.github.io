@@ -1,3 +1,4 @@
+import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 
 const useAnimateOnScroll = (
@@ -12,12 +13,9 @@ const useAnimateOnScroll = (
         const isIntersecting = entry.isIntersecting;
         const isBelowViewport = entry.boundingClientRect.top >= 0;
 
-        // 뷰포트 하단에서 진입할 때 등장
         if (isIntersecting && isBelowViewport) {
           setIsInView(true);
-        }
-        // 뷰포트 하단을 벗어날 때 퇴장
-        else if (!isIntersecting && isBelowViewport) {
+        } else if (!isIntersecting && isBelowViewport) {
           setIsInView(false);
         }
       },
@@ -30,21 +28,28 @@ const useAnimateOnScroll = (
     };
   }, [options.rootMargin, options.threshold]);
 
-  const fadeInVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.3, duration: 1, ease: "easeInOut" },
-    },
-    exit: {
-      opacity: 0,
-      y: 20,
-      transition: { duration: 0.8, ease: "easeInOut" },
-    },
-  };
+  useEffect(() => {
+    if (ref.current) {
+      if (isInView) {
+        gsap.to(ref.current, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "easeInOut",
+        });
+      } else {
+        gsap.to(ref.current, {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          ease: "easeInOut",
+        });
+      }
+    }
+  }, [isInView]);
 
-  return { ref, isInView, fadeInVariants };
+  return { ref };
 };
 
 export default useAnimateOnScroll;

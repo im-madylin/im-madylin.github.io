@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useEffect, useRef } from "react";
@@ -18,14 +17,14 @@ const Introduction: React.FC = () => {
       xPercent: () => -100 * (introSet.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: scroller.current, // 스크롤 트리거 설정
-        markers: false, // 디버그용 마커를 false로
-        pin: true, // 해당 영역 고정
-        pinSpacing: true, // 핀 후 영역을 차지하도록
-        scrub: 1, // 스크롤에 따라 애니메이션 조절
-        invalidateOnRefresh: true, // 새로고침 시 재계산
-        anticipatePin: 1, // 핀을 예상하여 약간의 지연 처리
-        snap: 1 / (introSet.length - 1), // 요소 간 스냅
+        trigger: scroller.current,
+        markers: false,
+        pin: true,
+        pinSpacing: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
+        snap: 1 / (introSet.length - 1),
 
         // 새로고침 시 스크롤이 끝날 시점을 다시 계산
         end: () => "+=" + window.innerWidth * (introSet.length - 1),
@@ -50,13 +49,11 @@ const Introduction: React.FC = () => {
     <div
       id="introductions"
       ref={scroller}
-      className="flex min-h-screen w-full flex-col items-start justify-center gap-28 bg-appleGray-80 p-36"
+      className="flex h-screen w-full flex-col items-start justify-center gap-28 bg-appleGray-80 p-36"
     >
-      <motion.div className="w-full items-center justify-center">
-        <motion.h2 className="text-center text-7xl font-bold">
-          Introduction
-        </motion.h2>
-      </motion.div>
+      <div className="w-full items-center justify-center">
+        <h2 className="text-center text-7xl font-bold">Introduction</h2>
+      </div>
       <div className="overflow-hidden">
         <div className="flex items-start justify-start gap-20 overflow-hidden">
           {introContents.map((content, index) => {

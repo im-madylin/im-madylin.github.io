@@ -13,7 +13,7 @@ const useAnimateOnLoad = (
       const initialProps = {
         opacity: 0,
         y: isZoom ? 0 : -50,
-        scale: isZoom ? 3 : 1, // isZoom에 따라 초기 scale 조정
+        scale: isZoom ? 3 : 1,
       };
 
       // 초기 상태 설정
@@ -32,7 +32,7 @@ const useAnimateOnLoad = (
         animation.kill();
       };
     }
-  }, [animationOptions, isZoom]);
+  }, []);
 
   return elementRef;
 };

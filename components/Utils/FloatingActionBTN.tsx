@@ -35,24 +35,21 @@ const FloatingActionBTN: React.FC = () => {
       onMouseLeave={() => setIsFABHovered(false)}
       className="fixed bottom-16 right-5 z-10 flex w-10 flex-col items-center justify-center gap-2 rounded-3xl bg-appleGray-100/70 p-4"
     >
-      {menu.map((item, index) => {
-        return isFABHovered ? (
-          <a
-            key={index}
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            className="flex h-fit transform items-center justify-center text-2xl text-gray-800 transition-all duration-1000 ease-in-out hover:scale-125"
-          >
-            {item.tag}
-          </a>
-        ) : (
-          <div
-            key={index}
-            className="h-3 w-3 rounded-full bg-appleGray-500 transition-all duration-1000 ease-in-out"
-          ></div>
-        );
-      })}
+      {menu.map((item, index) => (
+        <a
+          key={index}
+          href={isFABHovered ? item.href : undefined}
+          target={isFABHovered ? "_blank" : undefined}
+          rel={isFABHovered ? "noreferrer" : undefined}
+          className={`flex transform items-center justify-center transition-transform duration-500 ease-in-out ${
+            isFABHovered
+              ? "my-0.5 text-2xl text-gray-800 hover:scale-125"
+              : "h-3 w-3 rounded-full bg-appleGray-500"
+          }`}
+        >
+          {isFABHovered ? item.tag : null}
+        </a>
+      ))}
     </div>
   );
 };

@@ -2,12 +2,17 @@
 
 import Image from "next/image";
 import { skillContents } from "../../contents/aboutMe";
+import useAnimateOnScroll from "../../hooks/useAnimateOnScroll";
 import EscapeRegExp from "../Utils/EscapeRegExp";
 
 const SkillAndTools: React.FC = () => {
+  const h2Animate = useAnimateOnScroll();
+
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center gap-28 p-36">
-      <h2 className="text-center text-7xl font-bold">Skills & Tools</h2>
+      <div ref={h2Animate.ref}>
+        <h2 className="text-center text-7xl font-bold">Skills & Tools</h2>
+      </div>
       <div className="grid w-full grid-cols-2 items-start justify-center gap-24">
         {skillContents.map((content, index) => {
           const regex = new RegExp(

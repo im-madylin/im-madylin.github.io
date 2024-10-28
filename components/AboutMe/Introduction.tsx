@@ -8,11 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Introduction: React.FC = () => {
   const scroller = useRef<HTMLDivElement | null>(null);
-  const introductions = useRef<HTMLDivElement | null>(null);
 
   // 가로 스크롤 애니메이션
   useEffect(() => {
-    const introSet = gsap.utils.toArray(".introduction");
+    const introSet = gsap.utils.toArray<HTMLElement>(".introduction");
 
     const to = gsap.to(introSet, {
       xPercent: () => -100 * (introSet.length - 1),
@@ -23,11 +22,15 @@ const Introduction: React.FC = () => {
         pin: true,
         pinSpacing: true,
         scrub: 1,
-        invalidateOnRefresh: true,
         anticipatePin: 1,
-        snap: 1 / (introSet.length - 1),
-
-        end: () => "+=" + window.innerWidth,
+        snap: {
+          snapTo: 1 / (introSet.length - 1),
+          duration: { min: 0.5, max: 0.9 },
+          delay: 0.1,
+          ease: "power1.inOut",
+        },
+        invalidateOnRefresh: true,
+        end: () => "+=" + window.innerWidth * (introSet.length - 1),
       },
     });
 
@@ -40,13 +43,13 @@ const Introduction: React.FC = () => {
     <div
       id="introductions"
       ref={scroller}
-      className="flex h-screen w-full flex-col items-start justify-center gap-28 bg-appleGray-80 p-36"
+      className="flex h-screen w-full flex-col items-center justify-center gap-28 bg-appleGray-80"
     >
-      <div className="w-full items-center justify-center">
-        <h2 className="text-center text-7xl font-bold">Introduction</h2>
+      <div className="flex w-full justify-center">
+        <h2 className="text-left text-7xl font-bold">Introduction</h2>
       </div>
-      <div className="overflow-hidden">
-        <div className="flex items-start justify-start gap-20 overflow-hidden">
+      <div className="w-full overflow-hidden">
+        <div className="flex items-start justify-start overflow-hidden">
           {introContents.map((content, index) => {
             const regex = new RegExp(
               `(${content.highlights.map(EscapeRegExp).join("|")})`,
@@ -56,20 +59,19 @@ const Introduction: React.FC = () => {
             return (
               <div
                 key={index}
-                ref={introductions}
-                className="introduction flex w-[800px] flex-col items-center justify-center gap-8 whitespace-normal text-left"
+                className="introduction flex h-full w-full flex-shrink-0 flex-col items-center justify-start gap-8 px-36 text-left"
               >
-                <h3 className="w-full text-3xl font-bold">
+                <h3 className="w-full text-left text-3xl font-bold">
                   Q. {content.question}
                 </h3>
-                <p className="w-full text-xl font-semibold leading-8 text-gray-500">
-                  {answer.map((text, index) =>
+                <p className="w-full text-left text-xl font-semibold leading-8 text-gray-500">
+                  {answer.map((text, idx) =>
                     content.highlights.includes(text) ? (
-                      <span key={index} className="text-black">
+                      <span key={idx} className="text-black">
                         {text}
                       </span>
                     ) : (
-                      <span key={index}>{text}</span>
+                      <span key={idx}>{text}</span>
                     ),
                   )}
                 </p>

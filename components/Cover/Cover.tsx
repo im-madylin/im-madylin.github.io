@@ -66,44 +66,6 @@ const Cover: React.FC = () => {
             <TypingText />
           </div>
         </div>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <button
-            onClick={() => {
-              const aboutmeElement = document.getElementById("aboutme");
-              if (aboutmeElement) {
-                const headerHeight = 64; // 헤더 높이 (h-16 = 64px)
-                const elementPosition = aboutmeElement.offsetTop - headerHeight;
-                window.scrollTo({
-                  top: elementPosition,
-                  behavior: "smooth",
-                });
-              }
-            }}
-            className="group flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700 hover:shadow-xl sm:px-8 sm:py-4"
-          >
-            <span className="font-semibold">About Me</span>
-            <LiaAngleDoubleDownSolid className="transition-transform group-hover:translate-y-1" />
-          </button>
-          <button
-            onClick={() => {
-              const projectsElement = document.getElementById("projects");
-              if (projectsElement) {
-                const headerHeight = 64; // 헤더 높이 (h-16 = 64px)
-                const elementPosition =
-                  projectsElement.offsetTop - headerHeight;
-                window.scrollTo({
-                  top: elementPosition,
-                  behavior: "smooth",
-                });
-              }
-            }}
-            className="rounded-full border-2 border-blue-600 bg-white px-6 py-3 font-semibold text-blue-600 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-50 hover:shadow-xl sm:px-8 sm:py-4"
-          >
-            Projects
-          </button>
-        </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/50 to-transparent"></div>

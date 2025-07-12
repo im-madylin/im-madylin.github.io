@@ -83,11 +83,18 @@ const Cover: React.FC = () => {
             <LiaAngleDoubleDownSolid className="transition-transform group-hover:translate-y-1" />
           </button>
           <button
-            onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => {
+              const projectsElement = document.getElementById("projects");
+              if (projectsElement) {
+                const headerHeight = 64; // 헤더 높이 (h-16 = 64px)
+                const elementPosition =
+                  projectsElement.offsetTop - headerHeight;
+                window.scrollTo({
+                  top: elementPosition,
+                  behavior: "smooth",
+                });
+              }
+            }}
             className="rounded-full border-2 border-blue-600 bg-white px-8 py-4 font-semibold text-blue-600 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-50 hover:shadow-xl"
           >
             Projects

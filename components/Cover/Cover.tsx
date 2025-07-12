@@ -77,7 +77,7 @@ const Cover: React.FC = () => {
         <div>
           <div ref={dateRef}>
             <p className="absolute bottom-3 left-4 z-10 text-base text-gray-300">
-              Last Update 2024.09.13
+              Last Update 2025.01.12
             </p>
           </div>
           <div ref={iconRef}>

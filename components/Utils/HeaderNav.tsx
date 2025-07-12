@@ -55,12 +55,14 @@ const Header: React.FC = () => {
       <div className={`${isSticky ? "h-16" : ""}`} />
 
       <nav
-        className={`flex h-16 w-full items-center justify-between border-b border-gray-300 bg-appleGray-50/95 px-36 transition-all duration-300 ${
+        className={`flex h-16 w-full items-center justify-between border-b border-gray-300 bg-appleGray-50/95 px-4 transition-all duration-300 sm:px-8 md:px-16 lg:px-36 ${
           isSticky ? "fixed left-0 top-0 z-50" : "relative"
         }`}
       >
-        <div className="text-2xl font-semibold">프론트엔드 개발자 이하현</div>
-        <ul className="flex h-full items-center justify-center gap-12">
+        <div className="text-lg font-semibold sm:text-xl md:text-2xl">
+          프론트엔드 개발자 이하현
+        </div>
+        <ul className="flex h-full items-center justify-center gap-4 sm:gap-8 md:gap-12">
           {/* About Me */}
           <li className="flex h-full flex-col justify-between">
             <div className="h-0"></div>

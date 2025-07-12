@@ -27,14 +27,14 @@ const SkillAndTools: React.FC = () => {
                     src={content.logo}
                     width={40}
                     height={40}
-                    alt="logo"
+                    alt={`${content.name} 로고`}
                   ></Image>
                   {content.logo2 ? (
                     <Image
                       src={content.logo2}
                       width={40}
                       height={40}
-                      alt="logo"
+                      alt={`${content.name} 로고 2`}
                     ></Image>
                   ) : null}
                 </div>

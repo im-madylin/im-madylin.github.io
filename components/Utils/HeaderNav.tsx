@@ -55,42 +55,47 @@ const Header: React.FC = () => {
       <div className={`${isSticky ? "h-16" : ""}`} />
 
       <nav
-        className={`flex h-16 w-full items-center justify-between border-b border-gray-300 bg-appleGray-50/95 px-4 transition-all duration-300 sm:px-8 md:px-16 lg:px-36 ${
-          isSticky ? "fixed left-0 top-0 z-50" : "relative"
+        className={`flex h-16 w-full items-center justify-between border-b border-gray-200 bg-white/95 backdrop-blur-md px-4 transition-all duration-300 sm:px-8 md:px-16 lg:px-36 ${
+          isSticky ? "fixed left-0 top-0 z-50 shadow-lg" : "relative"
         }`}
       >
-        <div className="text-lg font-semibold sm:text-xl md:text-2xl">
-          프론트엔드 개발자 이하현
+        <div className="text-lg font-bold text-gray-800 sm:text-xl md:text-2xl">
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            이하현
+          </span>
+          <span className="ml-2 text-gray-600">Frontend Developer</span>
         </div>
         <ul className="flex h-full items-center justify-center gap-4 sm:gap-8 md:gap-12">
           {/* About Me */}
-          <li className="flex h-full flex-col justify-between">
+          <li className="group flex h-full flex-col justify-between">
             <div className="h-0"></div>
             <button
               onClick={() => scrollToSection("about")}
-              className="text-base font-medium"
+              className="relative text-base font-medium text-gray-600 transition-colors duration-300 hover:text-blue-600"
             >
               About Me
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </button>
             <div
-              className={`h-0 border-b ${
-                selectedSection === "about" ? "border-black" : ""
+              className={`h-0.5 transition-all duration-300 ${
+                selectedSection === "about" ? "bg-blue-600" : "bg-transparent"
               }`}
             ></div>
           </li>
 
           {/* Projects */}
-          <li className="flex h-full flex-col justify-between">
+          <li className="group flex h-full flex-col justify-between">
             <div className="h-0"></div>
             <button
               onClick={() => scrollToSection("projects")}
-              className="text-base font-medium"
+              className="relative text-base font-medium text-gray-600 transition-colors duration-300 hover:text-blue-600"
             >
               Projects
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </button>
             <div
-              className={`h-0 border-b ${
-                selectedSection === "projects" ? "border-black" : ""
+              className={`h-0.5 transition-all duration-300 ${
+                selectedSection === "projects" ? "bg-blue-600" : "bg-transparent"
               }`}
             ></div>
           </li>

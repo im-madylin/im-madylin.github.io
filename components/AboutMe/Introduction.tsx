@@ -20,17 +20,16 @@ const Introduction: React.FC = () => {
         trigger: scroller.current,
         markers: false,
         pin: true,
-        pinSpacing: true,
         scrub: 1,
-        anticipatePin: 1,
         snap: {
           snapTo: 1 / (introSet.length - 1),
-          duration: { min: 0.5, max: 0.9 },
+          duration: { min: 0.2, max: 0.3 },
           delay: 0.1,
-          ease: "power1.inOut",
         },
-        invalidateOnRefresh: true,
-        end: () => "+=" + window.innerWidth * (introSet.length - 1),
+        end: () =>
+          "+=" +
+          (window.innerWidth * (introSet.length - 1) + window.innerHeight),
+        pinSpacing: true,
       },
     });
 
@@ -43,10 +42,17 @@ const Introduction: React.FC = () => {
     <div
       id="introductions"
       ref={scroller}
-      className="flex h-screen w-full flex-col items-center justify-center gap-28 bg-appleGray-80"
+      className="flex h-screen w-full flex-col items-center justify-center gap-28 bg-gradient-to-br from-slate-50 to-blue-50"
     >
       <div className="flex w-full justify-center">
-        <h2 className="text-left text-7xl font-bold">Introduction</h2>
+        <div className="text-center">
+          <div className="mb-4 inline-block rounded-full bg-blue-100 px-6 py-2 text-sm font-semibold text-blue-800">
+            MY STORY
+          </div>
+          <h2 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-7xl font-bold text-transparent">
+            Introduction
+          </h2>
+        </div>
       </div>
       <div className="w-full overflow-hidden">
         <div className="flex items-start justify-start overflow-hidden">
@@ -61,20 +67,32 @@ const Introduction: React.FC = () => {
                 key={index}
                 className="introduction flex h-full w-full flex-shrink-0 flex-col items-center justify-start gap-8 px-36 text-left"
               >
-                <h3 className="w-full text-left text-3xl font-bold">
-                  Q. {content.question}
-                </h3>
-                <p className="w-full text-left text-xl font-semibold leading-8 text-gray-500">
-                  {answer.map((text, idx) =>
-                    content.highlights.includes(text) ? (
-                      <span key={idx} className="text-black">
-                        {text}
-                      </span>
-                    ) : (
-                      <span key={idx}>{text}</span>
-                    ),
-                  )}
-                </p>
+                <div className="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-lg">
+                  <div className="mb-6 flex items-center gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                      Q
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      {content.question}
+                    </h3>
+                  </div>
+                  <div className="pl-11">
+                    <p className="text-lg leading-8 text-gray-600">
+                      {answer.map((text, idx) =>
+                        content.highlights.includes(text) ? (
+                          <span
+                            key={idx}
+                            className="rounded bg-blue-100 px-1 font-semibold text-blue-800"
+                          >
+                            {text}
+                          </span>
+                        ) : (
+                          <span key={idx}>{text}</span>
+                        ),
+                      )}
+                    </p>
+                  </div>
+                </div>
               </div>
             );
           })}

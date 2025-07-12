@@ -33,7 +33,7 @@ const FloatingActionBTN: React.FC = () => {
       ref={buttonRef}
       onMouseEnter={() => setIsFABHovered(true)}
       onMouseLeave={() => setIsFABHovered(false)}
-      className="fixed bottom-16 right-5 z-10 flex w-10 flex-col items-center justify-center gap-2 rounded-3xl bg-appleGray-100/70 p-4"
+      className="hover:shadow-3xl fixed bottom-20 right-6 z-50 flex w-12 flex-col items-center justify-center gap-3 rounded-2xl border border-gray-100 bg-white/90 p-4 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105"
     >
       {menu.map((item, index) => (
         <a
@@ -41,11 +41,12 @@ const FloatingActionBTN: React.FC = () => {
           href={isFABHovered ? item.href : undefined}
           target={isFABHovered ? "_blank" : undefined}
           rel={isFABHovered ? "noreferrer" : undefined}
-          className={`flex transform items-center justify-center transition-transform duration-500 ease-in-out ${
+          className={`flex transform items-center justify-center transition-all duration-300 ease-in-out ${
             isFABHovered
-              ? "my-0.5 text-2xl text-gray-800 hover:scale-125"
-              : "h-3 w-3 rounded-full bg-appleGray-500"
+              ? "h-10 w-10 rounded-xl border border-blue-100 bg-blue-50 text-2xl text-blue-600 shadow-lg hover:scale-110 hover:text-blue-700"
+              : "h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 shadow-md hover:from-blue-600 hover:to-indigo-600"
           }`}
+          title={isFABHovered ? item.name : undefined}
         >
           {isFABHovered ? item.tag : null}
         </a>

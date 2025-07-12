@@ -78,7 +78,8 @@ const Projects: React.FC = () => {
             Projects
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg md:text-xl">
-            다양한 프로젝트를 통해 쌓아온 경험과 기술력을 확인해보세요.
+            여러 프로젝트 경험을 통해 프론트엔드 역량과 문제 해결 능력을
+            강화하고 있습니다.
           </p>
         </div>
       </div>

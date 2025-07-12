@@ -56,7 +56,7 @@ const Cover: React.FC = () => {
             <h1 className="bg-gradient-to-r from-gray-800 via-blue-800 to-indigo-800 bg-clip-text text-center text-3xl font-bold leading-tight text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
               안녕하세요,
               <br />
-              <span className="text-blue-600">이하현</span> 입니다
+              <span className="text-blue-600">이하현</span>입니다
             </h1>
           </div>
           <div
@@ -70,11 +70,17 @@ const Cover: React.FC = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <button
-            onClick={() =>
-              document
-                .getElementById("about")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => {
+              const aboutmeElement = document.getElementById("aboutme");
+              if (aboutmeElement) {
+                const headerHeight = 64; // 헤더 높이 (h-16 = 64px)
+                const elementPosition = aboutmeElement.offsetTop - headerHeight;
+                window.scrollTo({
+                  top: elementPosition,
+                  behavior: "smooth",
+                });
+              }
+            }}
             className="group flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700 hover:shadow-xl sm:px-8 sm:py-4"
           >
             <span className="font-semibold">About Me</span>

@@ -1,52 +1,110 @@
 "use client";
 
-import Image from "next/image";
-import useAnimateOnScroll from "../../hooks/useAnimateOnScroll";
-import Introduction from "./Introduction";
-import SkillAndTools from "./SkillAndTools";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useEffect, useRef } from "react";
+import { introContents } from "../../contents/aboutMe";
+import EscapeRegExp from "../Utils/EscapeRegExp";
 
-const AboutMe: React.FC = () => {
-  const h1Animate = useAnimateOnScroll();
-  const imageAnimate = useAnimateOnScroll();
+gsap.registerPlugin(ScrollTrigger);
+
+const Introduction: React.FC = () => {
+  const scroller = useRef<HTMLDivElement | null>(null);
+
+  // 가로 스크롤 애니메이션
+  useEffect(() => {
+    const aboutmeSet = gsap.utils.toArray<HTMLElement>(".aboutme");
+
+    const to = gsap.to(aboutmeSet, {
+      xPercent: () => -100 * (aboutmeSet.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: scroller.current,
+        markers: false,
+        pin: true,
+        scrub: 1,
+        snap: {
+          snapTo: 1 / (aboutmeSet.length - 1),
+          duration: { min: 0.2, max: 0.3 },
+          delay: 0.1,
+        },
+        end: () =>
+          "+=" +
+          (window.innerWidth * (aboutmeSet.length - 1) + window.innerHeight),
+        pinSpacing: true,
+      },
+    });
+
+    return () => {
+      to.kill();
+    };
+  }, []);
 
   return (
-    <section
-      id="about"
-      className="flex min-h-screen w-full flex-col items-center justify-start overflow-hidden bg-white"
+    <div
+      id="aboutme"
+      ref={scroller}
+      className="flex h-screen w-full flex-col items-center justify-center gap-28 bg-gradient-to-br from-slate-50 to-blue-50"
     >
-      <div className="flex w-full flex-col gap-12 p-4 sm:gap-16 sm:p-8 md:gap-20 md:p-16 lg:gap-24 lg:p-36">
-        <div ref={h1Animate.ref} className="text-center">
+      <div className="flex w-full justify-center px-4">
+        <div className="text-center">
           <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-800 sm:mb-4 sm:px-6 sm:py-2 sm:text-sm">
-            WHO AM I
+            MY STORY
           </div>
-          <h1 className="w-full bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-center text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-7xl">
             About Me
-          </h1>
+          </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg md:text-xl">
-            사용자 중심의 경험을 만드는 프론트엔드 개발자로,
-            <br className="hidden sm:block" />
-            협력과 소통을 통해 더 나은 서비스를 구현합니다.
+            다양한 경험과 배움을 통해 꾸준히 성장하는 개발자, 이하현입니다.
           </p>
         </div>
-        <div
-          ref={imageAnimate.ref}
-          className="relative overflow-hidden rounded-2xl shadow-2xl"
-        >
-          <Image
-            src="/images/html_image.webp"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="h-auto w-full object-cover"
-            alt="html code"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      </div>
+      <div className="w-full overflow-hidden">
+        <div className="flex items-start justify-start overflow-hidden">
+          {introContents.map((content, index) => {
+            const regex = new RegExp(
+              `(${content.highlights.map(EscapeRegExp).join("|")})`,
+              "g",
+            );
+            const answer = content.answer.split(regex);
+            return (
+              <div
+                key={index}
+                className="aboutme flex h-full w-full flex-shrink-0 flex-col items-center justify-start gap-6 px-4 text-left sm:gap-8 sm:px-8 md:px-16 lg:px-36"
+              >
+                <div className="w-full rounded-2xl border border-gray-100 bg-white p-4 shadow-lg sm:p-6 md:p-8">
+                  <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white sm:h-8 sm:w-8 sm:text-sm">
+                      Q
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-800 sm:text-xl md:text-2xl">
+                      {content.question}
+                    </h3>
+                  </div>
+                  <div className="pl-8 sm:pl-11">
+                    <p className="text-sm leading-6 text-gray-600 sm:text-base sm:leading-7 md:text-lg md:leading-8">
+                      {answer.map((text, idx) =>
+                        content.highlights.includes(text) ? (
+                          <span
+                            key={idx}
+                            className="rounded bg-blue-100 px-1 font-semibold text-blue-800"
+                          >
+                            {text}
+                          </span>
+                        ) : (
+                          <span key={idx}>{text}</span>
+                        ),
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-      <Introduction />
-      <SkillAndTools />
-    </section>
+    </div>
   );
 };
 
-export default AboutMe;
+export default Introduction;

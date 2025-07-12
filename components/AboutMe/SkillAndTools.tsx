@@ -9,7 +9,10 @@ const SkillAndTools: React.FC = () => {
   const h2Animate = useAnimateOnScroll();
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-12 bg-white p-4 sm:gap-16 sm:p-8 md:gap-20 md:p-16 lg:gap-28 lg:p-36">
+    <div
+      id="skills"
+      className="flex min-h-screen w-full flex-col items-center justify-center gap-12 bg-white p-4 sm:gap-16 sm:p-8 md:gap-20 md:p-16 lg:gap-28 lg:p-36"
+    >
       <div ref={h2Animate.ref} className="text-center">
         <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-800 sm:mb-4 sm:px-6 sm:py-2 sm:text-sm">
           TECH STACK

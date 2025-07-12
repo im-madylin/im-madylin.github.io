@@ -28,10 +28,10 @@ const GoUpBTN: React.FC = () => {
     <button
       ref={buttonRef}
       onClick={scrollToTop}
-      className="hover:shadow-3xl fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-blue-700/50 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      className="hover:shadow-3xl fixed bottom-4 right-4 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-blue-700/50 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
       aria-label="맨 위로 스크롤"
     >
-      <FaArrowUp className="text-lg" />
+      <FaArrowUp className="text-sm sm:text-lg" />
     </button>
   );
 };

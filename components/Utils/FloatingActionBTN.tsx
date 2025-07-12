@@ -33,7 +33,7 @@ const FloatingActionBTN: React.FC = () => {
       ref={buttonRef}
       onMouseEnter={() => setIsFABHovered(true)}
       onMouseLeave={() => setIsFABHovered(false)}
-      className="hover:shadow-3xl fixed bottom-16 right-4 z-50 flex w-10 flex-col items-center justify-center gap-2 rounded-2xl border border-gray-100 bg-white/90 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 sm:bottom-20 sm:right-6 sm:w-12 sm:gap-3 sm:p-4"
+      className="hover:shadow-3xl fixed bottom-20 right-4 z-50 flex w-10 flex-col items-center justify-center gap-2 rounded-2xl border border-gray-100 bg-white/90 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 sm:bottom-24 sm:right-6 sm:w-12 sm:gap-3 sm:p-4"
     >
       {menu.map((item, index) => (
         <a

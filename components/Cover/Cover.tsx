@@ -47,32 +47,35 @@ const Cover: React.FC = () => {
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-purple-200/30 to-pink-300/30 blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-16">
-        <div className="flex flex-col items-center gap-8">
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-8 px-4 sm:gap-12 md:gap-16">
+        <div className="flex flex-col items-center gap-6 sm:gap-8">
           <div ref={h1Ref} className="text-center">
-            <div className="mb-4 inline-block rounded-full bg-blue-100 px-6 py-2 text-sm font-semibold text-blue-800">
+            <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-800 sm:mb-4 sm:px-6 sm:py-2 sm:text-sm">
               Frontend Developer
             </div>
-            <h1 className="bg-gradient-to-r from-gray-800 via-blue-800 to-indigo-800 bg-clip-text text-center text-6xl font-bold leading-tight text-transparent">
+            <h1 className="bg-gradient-to-r from-gray-800 via-blue-800 to-indigo-800 bg-clip-text text-center text-3xl font-bold leading-tight text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
               안녕하세요,
               <br />
               <span className="text-blue-600">이하현</span> 입니다
             </h1>
           </div>
-          <div ref={textRef} className="h-20 max-w-2xl px-4">
+          <div
+            ref={textRef}
+            className="h-24 w-full max-w-xs px-4 sm:h-20 sm:max-w-2xl"
+          >
             <TypingText />
           </div>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <button
             onClick={() =>
               document
                 .getElementById("about")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="group flex items-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700 hover:shadow-xl"
+            className="group flex items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700 hover:shadow-xl sm:px-8 sm:py-4"
           >
             <span className="font-semibold">About Me</span>
             <LiaAngleDoubleDownSolid className="transition-transform group-hover:translate-y-1" />
@@ -90,7 +93,7 @@ const Cover: React.FC = () => {
                 });
               }
             }}
-            className="rounded-full border-2 border-blue-600 bg-white px-8 py-4 font-semibold text-blue-600 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-50 hover:shadow-xl"
+            className="rounded-full border-2 border-blue-600 bg-white px-6 py-3 font-semibold text-blue-600 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-blue-50 hover:shadow-xl sm:px-8 sm:py-4"
           >
             Projects
           </button>

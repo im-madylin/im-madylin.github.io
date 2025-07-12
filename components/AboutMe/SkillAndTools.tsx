@@ -9,58 +9,69 @@ const SkillAndTools: React.FC = () => {
   const h2Animate = useAnimateOnScroll();
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-28 p-36 bg-white">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center gap-12 bg-white p-4 sm:gap-16 sm:p-8 md:gap-20 md:p-16 lg:gap-28 lg:p-36">
       <div ref={h2Animate.ref} className="text-center">
-        <div className="mb-4 inline-block rounded-full bg-blue-100 px-6 py-2 text-sm font-semibold text-blue-800">
+        <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-800 sm:mb-4 sm:px-6 sm:py-2 sm:text-sm">
           TECH STACK
         </div>
-        <h2 className="text-7xl font-bold bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-transparent">Skills & Tools</h2>
-        <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          다양한 기술과 도구를 활용하여 사용자 경험을 향상시키는 서비스를 개발합니다.
+        <h2 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-7xl">
+          Skills & Tools
+        </h2>
+        <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg md:text-xl">
+          다양한 기술과 도구를 활용하여 사용자 경험을 향상시키는 서비스를
+          개발합니다.
         </p>
       </div>
-      <div className="grid w-full grid-cols-1 md:grid-cols-2 items-start justify-center gap-8">
+      <div className="grid w-full grid-cols-1 items-start justify-center gap-4 sm:gap-6 md:grid-cols-2 md:gap-8">
         {skillContents.map((content, index) => {
           const regex = new RegExp(
             `(${content.highlights.map(EscapeRegExp).join("|")})`,
             "g",
           );
           return (
-            <div key={index} className="group rounded-2xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:scale-105">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-blue-50 border border-blue-100">
+            <div
+              key={index}
+              className="group rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-4 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl sm:p-6 md:p-8"
+            >
+              <div className="mb-4 flex items-center gap-3 sm:mb-6 sm:gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 sm:h-16 sm:w-16">
                   <div className="flex gap-0">
                     <Image
                       src={content.logo}
-                      width={32}
-                      height={32}
+                      width={24}
+                      height={24}
                       alt={`${content.name} 로고`}
-                      className="rounded"
+                      className="rounded sm:h-8 sm:w-8"
                     />
                     {content.logo2 && (
                       <Image
                         src={content.logo2}
-                        width={32}
-                        height={32}
+                        width={24}
+                        height={24}
                         alt={`${content.name} 로고 2`}
-                        className="rounded -ml-2"
+                        className="-ml-1.5 rounded sm:-ml-2 sm:h-8 sm:w-8"
                       />
                     )}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800">{content.name}</h3>
+                <h3 className="text-lg font-bold text-gray-800 sm:text-xl md:text-2xl">
+                  {content.name}
+                </h3>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {content.description.map((text, index) => {
                   const answer = text.split(regex);
                   return (
                     <p
                       key={index}
-                      className="text-gray-600 leading-relaxed"
+                      className="text-sm leading-relaxed text-gray-600 sm:text-base"
                     >
                       {answer.map((text, index) =>
                         content.highlights.includes(text) ? (
-                          <span key={index} className="bg-blue-100 text-blue-800 font-semibold px-1 rounded">
+                          <span
+                            key={index}
+                            className="rounded bg-blue-100 px-1 font-semibold text-blue-800"
+                          >
                             {text}
                           </span>
                         ) : (

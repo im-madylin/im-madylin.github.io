@@ -44,12 +44,12 @@ const Introduction: React.FC = () => {
       ref={scroller}
       className="flex h-screen w-full flex-col items-center justify-center gap-28 bg-gradient-to-br from-slate-50 to-blue-50"
     >
-      <div className="flex w-full justify-center">
+      <div className="flex w-full justify-center px-4">
         <div className="text-center">
-          <div className="mb-4 inline-block rounded-full bg-blue-100 px-6 py-2 text-sm font-semibold text-blue-800">
+          <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-800 sm:mb-4 sm:px-6 sm:py-2 sm:text-sm">
             MY STORY
           </div>
-          <h2 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-7xl font-bold text-transparent">
+          <h2 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-7xl">
             Introduction
           </h2>
         </div>
@@ -65,19 +65,19 @@ const Introduction: React.FC = () => {
             return (
               <div
                 key={index}
-                className="introduction flex h-full w-full flex-shrink-0 flex-col items-center justify-start gap-8 px-36 text-left"
+                className="introduction flex h-full w-full flex-shrink-0 flex-col items-center justify-start gap-6 px-4 text-left sm:gap-8 sm:px-8 md:px-16 lg:px-36"
               >
-                <div className="w-full rounded-2xl border border-gray-100 bg-white p-8 shadow-lg">
-                  <div className="mb-6 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                <div className="w-full rounded-2xl border border-gray-100 bg-white p-4 shadow-lg sm:p-6 md:p-8">
+                  <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white sm:h-8 sm:w-8 sm:text-sm">
                       Q
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800">
+                    <h3 className="text-lg font-bold text-gray-800 sm:text-xl md:text-2xl">
                       {content.question}
                     </h3>
                   </div>
-                  <div className="pl-11">
-                    <p className="text-lg leading-8 text-gray-600">
+                  <div className="pl-8 sm:pl-11">
+                    <p className="text-sm leading-6 text-gray-600 sm:text-base sm:leading-7 md:text-lg md:leading-8">
                       {answer.map((text, idx) =>
                         content.highlights.includes(text) ? (
                           <span

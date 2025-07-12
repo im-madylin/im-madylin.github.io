@@ -69,25 +69,25 @@ const Projects: React.FC = () => {
       ref={containerRef}
       className="relative w-full bg-gradient-to-br from-slate-50 to-blue-50"
     >
-      <div className="flex items-center justify-center py-16">
-        <div className="text-center">
-          <div className="mb-4 inline-block rounded-full bg-blue-100 px-6 py-2 text-sm font-semibold text-blue-800">
+      <div className="flex items-center justify-center py-8 sm:py-12 md:py-16">
+        <div className="px-4 text-center">
+          <div className="mb-3 inline-block rounded-full bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-800 sm:mb-4 sm:px-6 sm:py-2 sm:text-sm">
             MY WORK
           </div>
-          <h1 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text pb-2 text-6xl font-bold leading-tight text-transparent">
+          <h1 className="bg-gradient-to-r from-gray-800 to-blue-800 bg-clip-text pb-2 text-3xl font-bold leading-tight text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
             Projects
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-xl leading-relaxed text-gray-600">
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-600 sm:mt-6 sm:text-lg md:text-xl">
             다양한 프로젝트를 통해 쌓아온 경험과 기술력을 확인해보세요.
           </p>
         </div>
       </div>
 
-      <div className="space-y-24 pb-24">
+      <div className="space-y-12 pb-12 sm:space-y-16 sm:pb-16 md:space-y-20 md:pb-20 lg:space-y-24 lg:pb-24">
         {projectContents.map((content, index) => (
           <div
             key={`project-${index}`}
-            className="flex items-center justify-center px-8"
+            className="flex items-center justify-center px-4 sm:px-6 md:px-8"
           >
             <ProjectCard content={content} index={index} />
           </div>
@@ -113,48 +113,48 @@ const ProjectCard = memo(
     }, [content.title]);
 
     return (
-      <div className="project-card group w-full max-w-6xl transform-gpu rounded-3xl border border-gray-100/50 bg-white/80 p-12 shadow-2xl backdrop-blur-sm will-change-transform">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-full bg-blue-600"></div>
-                <span className="text-sm font-semibold uppercase tracking-wide text-blue-600">
+      <div className="project-card group w-full max-w-6xl transform-gpu rounded-3xl border border-gray-100/50 bg-white/80 p-6 shadow-2xl backdrop-blur-sm will-change-transform sm:p-8 md:p-10 lg:p-12">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="h-6 w-6 rounded-full bg-blue-600 sm:h-8 sm:w-8"></div>
+                <span className="text-xs font-semibold uppercase tracking-wide text-blue-600 sm:text-sm">
                   Project {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
-              <h2 className="text-4xl font-bold text-gray-800">
+              <h2 className="text-2xl font-bold text-gray-800 sm:text-3xl md:text-4xl">
                 {content.title}
               </h2>
-              <h3 className="text-2xl font-semibold text-gray-600">
+              <h3 className="text-lg font-semibold text-gray-600 sm:text-xl md:text-2xl">
                 {content.subtitle}
               </h3>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex items-center gap-2 text-xs text-gray-600 sm:text-sm">
                 <span className="font-semibold">기간:</span>
                 <span>{content.period}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-xs text-gray-600 sm:text-sm">
                 <span className="font-semibold">팀 구성:</span>
                 <span>{content.members}</span>
               </div>
             </div>
 
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-sm leading-relaxed text-gray-700 sm:text-base md:text-lg">
               {content.description}
             </p>
 
             <div className="space-y-2">
-              <span className="text-sm font-semibold text-gray-800">
+              <span className="text-xs font-semibold text-gray-800 sm:text-sm">
                 사용 기술
               </span>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {techStackArray.map((tech: string, techIndex: number) => (
                   <span
                     key={techIndex}
-                    className="rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800"
+                    className="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800 sm:px-3 sm:py-1 sm:text-sm"
                   >
                     {tech}
                   </span>
@@ -167,7 +167,7 @@ const ProjectCard = memo(
             </div>
           </div>
 
-          <div className="relative transform-gpu overflow-hidden rounded-2xl shadow-lg">
+          <div className="relative order-first transform-gpu overflow-hidden rounded-2xl shadow-lg lg:order-last">
             <Image
               src={content.image}
               width={600}

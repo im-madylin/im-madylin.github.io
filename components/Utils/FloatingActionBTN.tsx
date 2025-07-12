@@ -33,7 +33,7 @@ const FloatingActionBTN: React.FC = () => {
       ref={buttonRef}
       onMouseEnter={() => setIsFABHovered(true)}
       onMouseLeave={() => setIsFABHovered(false)}
-      className="hover:shadow-3xl fixed bottom-20 right-6 z-50 flex w-12 flex-col items-center justify-center gap-3 rounded-2xl border border-gray-100 bg-white/90 p-4 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105"
+      className="hover:shadow-3xl fixed bottom-16 right-4 z-50 flex w-10 flex-col items-center justify-center gap-2 rounded-2xl border border-gray-100 bg-white/90 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 sm:bottom-20 sm:right-6 sm:w-12 sm:gap-3 sm:p-4"
     >
       {menu.map((item, index) => (
         <a
@@ -43,8 +43,8 @@ const FloatingActionBTN: React.FC = () => {
           rel={isFABHovered ? "noreferrer" : undefined}
           className={`flex transform items-center justify-center transition-all duration-300 ease-in-out ${
             isFABHovered
-              ? "h-10 w-10 rounded-xl border border-blue-100 bg-blue-50 text-2xl text-blue-600 shadow-lg hover:scale-110 hover:text-blue-700"
-              : "h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 shadow-md hover:from-blue-600 hover:to-indigo-600"
+              ? "h-8 w-8 rounded-xl border border-blue-100 bg-blue-50 text-lg text-blue-600 shadow-lg hover:scale-110 hover:text-blue-700 sm:h-10 sm:w-10 sm:text-2xl"
+              : "h-2.5 w-2.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 shadow-md hover:from-blue-600 hover:to-indigo-600 sm:h-3 sm:w-3"
           }`}
           title={isFABHovered ? item.name : undefined}
         >

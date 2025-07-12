@@ -1,5 +1,6 @@
 import AboutMe from "../components/AboutMe/AboutMe";
 import SkillAndTools from "../components/AboutMe/SkillAndTools";
+import ContactMe from "../components/Contact/ContactMe";
 import Cover from "../components/Cover/Cover";
 import Projects from "../components/Projects/Projects";
 import ErrorBoundary from "../components/Utils/ErrorBoundary";
@@ -19,6 +20,7 @@ export default function Home() {
           <AboutMe />
           <SkillAndTools />
           <Projects />
+          <ContactMe />
         </main>
         <footer className="items-center justify-center"></footer>
       </div>

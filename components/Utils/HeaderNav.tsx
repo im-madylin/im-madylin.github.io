@@ -42,7 +42,7 @@ const Header: React.FC = () => {
       setIsSticky(scrollTop > coverSectionHeight);
 
       // 현재 스크롤 위치에 따라 선택된 섹션 업데이트
-      const sections = ["aboutme", "skills", "projects"];
+      const sections = ["aboutme", "skills", "projects", "contact"];
       let currentSection = "aboutme"; // 기본값을 aboutme로 설정
 
       for (const section of sections) {

@@ -58,10 +58,10 @@ const Cover: React.FC = () => {
             <div className="mb-4 inline-block rounded-full bg-blue-100 px-6 py-2 text-sm font-semibold text-blue-800">
               Frontend Developer
             </div>
-            <h1 className="flex items-center justify-center gap-4 bg-gradient-to-r from-gray-800 via-blue-800 to-indigo-800 bg-clip-text text-6xl font-bold text-transparent">
+            <h1 className="bg-gradient-to-r from-gray-800 via-blue-800 to-indigo-800 bg-clip-text text-center text-6xl font-bold leading-tight text-transparent">
               안녕하세요,
               <br />
-              <span className="text-blue-600">이하현</span>입니다
+              <span className="text-blue-600">이하현</span> 입니다
             </h1>
           </div>
           <div ref={textRef} className="h-20 max-w-2xl px-4">

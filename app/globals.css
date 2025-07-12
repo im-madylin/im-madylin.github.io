@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 .blinking-cursor {
-  animation: blink 1s infinite;
+  animation: blink 1.2s infinite;
 }
 
 @keyframes blink {
   0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
   100% {
     opacity: 0;
-  }
-  50% {
-    opacity: 1;
   }
 }

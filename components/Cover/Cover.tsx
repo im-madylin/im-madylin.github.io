@@ -18,11 +18,6 @@ const Cover: React.FC = () => {
     delay: 1.5,
   });
 
-  const dateRef = useAnimateOnLoad({
-    duration: 1,
-    delay: 2,
-  });
-
   const iconRef = useAnimateOnLoad({
     duration: 1,
     delay: 2,
@@ -103,10 +98,6 @@ const Cover: React.FC = () => {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/50 to-transparent"></div>
-
-      <div ref={dateRef} className="absolute bottom-4 left-4 z-20">
-        <p className="text-sm text-gray-500">Last Update 2025.01.12</p>
-      </div>
 
       <div
         ref={iconRef}

@@ -23,6 +23,60 @@ const TypingText: React.FC = () => {
   const isDeleting = useRef(false);
   const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  const handleDotClick = (index: number) => {
+    // 현재 타이핑 애니메이션 중단
+    if (typingTimeout.current) {
+      clearTimeout(typingTimeout.current);
+    }
+
+    // 새로운 인덱스로 설정
+    wordIndex.current = index;
+    letterIndex.current = 0;
+    isDeleting.current = false;
+    setCurrentWordIndex(index);
+
+    // 해당 텍스트를 즉시 표시하고 타이핑 애니메이션 시작
+    setText([""]);
+
+    // typeLetter 함수를 다시 정의하여 사용
+    const typeLetter = () => {
+      const word = words[wordIndex.current];
+
+      if (!isDeleting.current) {
+        // 타이핑 중
+        setText([word.slice(0, letterIndex.current + 1)]);
+        letterIndex.current += 1;
+
+        if (letterIndex.current === word.length) {
+          // 단어 완성 후 잠시 대기
+          typingTimeout.current = setTimeout(() => {
+            isDeleting.current = true;
+            typingTimeout.current = setTimeout(typeLetter, WORD_DELETE_DELAY);
+          }, WORD_STAY_DELAY);
+          return;
+        }
+        typingTimeout.current = setTimeout(typeLetter, LETTER_TYPE_DELAY);
+      } else {
+        // 삭제 중
+        setText([word.slice(0, letterIndex.current - 1)]);
+        letterIndex.current -= 1;
+
+        if (letterIndex.current === 0) {
+          isDeleting.current = false;
+          wordIndex.current = (wordIndex.current + 1) % words.length;
+          setCurrentWordIndex(wordIndex.current);
+          typingTimeout.current = setTimeout(typeLetter, LETTER_TYPE_DELAY);
+          return;
+        }
+        typingTimeout.current = setTimeout(typeLetter, WORD_DELETE_DELAY);
+      }
+    };
+
+    typingTimeout.current = setTimeout(() => {
+      typeLetter();
+    }, 100);
+  };
+
   useEffect(() => {
     const typeLetter = () => {
       const word = words[wordIndex.current];
@@ -78,9 +132,10 @@ const TypingText: React.FC = () => {
       {/* 진행 표시 점들 */}
       <div className="flex gap-2">
         {words.map((_, index) => (
-          <div
+          <button
             key={index}
-            className={`h-2 w-2 rounded-full transition-all duration-300 ${
+            onClick={() => handleDotClick(index)}
+            className={`h-2 w-2 cursor-pointer rounded-full transition-all duration-300 ${
               index === currentWordIndex
                 ? "scale-125 bg-blue-600"
                 : "bg-gray-300 hover:bg-gray-400"
